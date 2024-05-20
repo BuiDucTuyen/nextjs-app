@@ -8,6 +8,15 @@
   --background-between-rgb: 255, 238, 238;
   --background-end-rgb: 248, 248, 211;
   --background-url:url(https://zerius.io/img/bg.png);
+  /*footer*/
+  --background-footer-start-rgb: 249, 237, 234;
+  --background-footer-between-rgb: 255, 238, 238;
+  --background-footer-end-rgb: 248, 248, 211;
+  --color-black: #131313;
+  --color-pink: #f4ece4;
+  --color-pink-dark: #ebe8dd;
+  --background-footer-url:url(https://bridge.onbeam.com/static/lcd-tile.png);
+  --foreground-footer-color: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +31,12 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(90deg,rgb(var(--background-start-rgb)) 3%,rgb(var(--background-between-rgb)) 66%, rgb(var(--background-start-rgb)) 96%), var(--background-url);
 }
-   
+
+footer {
+  color: rgb(var(--foreground-footer-color));
+  background: linear-gradient(0deg,var(--color-black),var(--color-black)),linear-gradient(135.76deg,var(--color-pink),var(--color-pink-dark) 98.7%),var(--background-footer-url);
+  padding-top: 20px;
+}
 
 @layer utilities {
   .text-balance {
