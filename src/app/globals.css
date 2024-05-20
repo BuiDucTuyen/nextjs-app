@@ -30,7 +30,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #ebe8dd;
+}
+
+.main {
+ /* background: linear-gradient(90deg,rgb(var(--background-start-rgb)) 3%,rgb(var(--background-between-rgb)) 66%, rgb(var(--background-start-rgb)) 96%), var(--background-url); */
+ background-color: #ebe8dd;
 }
 
 footer {
@@ -52,7 +56,30 @@ footer > p {
 
 .navbar-bottom {
   color: rgb(var(--foreground-footer-color));
-  background: linear-gradient(0deg,#fff,#fff),linear-gradient(135.76deg,var(--color-pink),var(--color-pink-dark) 98.7%),var(--background-footer-url);
+  background: #ffffff;
+}
+
+.s1 { height: 700px; width: 400px }
+.s2 { height: 500px; width: 600px }
+
+.shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04);
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
 }
 
 @layer utilities {

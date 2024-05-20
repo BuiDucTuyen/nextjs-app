@@ -25,7 +25,6 @@ export default function RootLayout({
         <NextUIProvider>
           <NextThemesProvider attribute="class" defaultTheme="dark">
             <Navbar />
-            <NavbarBottom />
             <div>{children}</div>
             <div>
               <Footer />

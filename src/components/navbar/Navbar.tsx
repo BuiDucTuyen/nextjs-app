@@ -27,33 +27,23 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    label: "Features",
+    label: "Trade",
     link: "#",
     children: [
       {
-        label: "Todo list",
-        link: "#",
+        label: "swap",
+        link: "/swap",
         iconImage: todoImage,
       },
       {
-        label: "Calendar",
-        link: "#",
+        label: "liquidity",
+        link: "/liquidity",
         iconImage: calendarImage,
-      },
-      {
-        label: "Reminders",
-        link: "#",
-        iconImage: remindersImage,
-      },
-      {
-        label: "Planning",
-        link: "#",
-        iconImage: planningImage,
-      },
+      }
     ],
   },
   {
-    label: "Compnay",
+    label: "Buy",
     link: "#",
     children: [
       {
@@ -71,13 +61,18 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Careers",
+    label: "Earn",
     link: "#",
   },
   {
-    label: "About",
+    label: "Game",
     link: "#",
   },
+  {
+    label: "NFT",
+    link: "#",
+  },
+ 
 ];
 
 export default function Navbar() {
@@ -95,7 +90,7 @@ export default function Navbar() {
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-10">
         {/* logo */}
-        <Image src={logo} alt=" logo" />
+        <Link href='/'><Image src={logo} alt=" logo" /></Link>
         {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
         <div className="hidden md:flex items-center gap-4 transition-all">
           {navItems.map((d, i) => (
