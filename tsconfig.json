@@ -11,11 +11,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": "./",
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
-      }
+      "@heroicons/react/*": ["node_modules/@heroicons/react/*"]
+    }
     ],
     "paths": {
       "@/*": ["./src/*"]

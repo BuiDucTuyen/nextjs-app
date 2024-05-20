@@ -16,6 +16,8 @@ import planningImage from "@/assets/images/icon-planning.svg";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import ButtonTheme from "../dark-mode/ButtonTheme";
+import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
 
 type NavItem = {
   label: string;
@@ -32,24 +34,24 @@ const navItems: NavItem[] = [
       {
         label: "Todo list",
         link: "#",
-        iconImage: todoImage
+        iconImage: todoImage,
       },
       {
         label: "Calendar",
         link: "#",
-        iconImage: calendarImage
+        iconImage: calendarImage,
       },
       {
         label: "Reminders",
         link: "#",
-        iconImage: remindersImage
+        iconImage: remindersImage,
       },
       {
         label: "Planning",
         link: "#",
-        iconImage: planningImage
-      }
-    ]
+        iconImage: planningImage,
+      },
+    ],
   },
   {
     label: "Compnay",
@@ -57,26 +59,26 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "History",
-        link: "#"
+        link: "#",
       },
       {
         label: "Our Team",
-        link: "#"
+        link: "#",
       },
       {
         label: "Blog",
-        link: "#"
-      }
-    ]
+        link: "#",
+      },
+    ],
   },
   {
     label: "Careers",
-    link: "#"
+    link: "#",
   },
   {
     label: "About",
-    link: "#"
-  }
+    link: "#",
+  },
 ];
 
 export default function Navbar() {
@@ -90,7 +92,7 @@ export default function Navbar() {
   }
 
   return (
-        <div className="navbar mx-auto flex w-full justify-between px-4 py-5 text-sm">
+    <div className="navbar mx-auto flex w-full justify-between px-4 py-5 text-sm">
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-10">
         {/* logo */}
@@ -146,6 +148,9 @@ export default function Navbar() {
         <button className="h-fit rounded-xl border-2 border-neutral-400 px-4 py-2 text-neutral-400 transition-all hover:border-black hover:text-black/90">
           Register
         </button>
+        <div>
+          <ThemeSwitcher />
+        </div>
       </section>
 
       <FiMenu
