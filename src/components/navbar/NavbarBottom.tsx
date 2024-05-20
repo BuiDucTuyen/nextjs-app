@@ -1,8 +1,9 @@
 "use client"
 
+// import { PropsClick } from "@/app/swap/page";
 import Link from "next/link";
 import React, { useState } from "react";
-const NavbarBottom = () => {
+const NavbarBottom = ({isClick,setIsClick}:any) => {
   const [isActive,setIsActive] = useState(1)
   const buttons = [
     { id: 1, title: "Swap", link:'/pages/swap' },
@@ -18,7 +19,7 @@ const NavbarBottom = () => {
         {buttons.map((item) => (
           <div key={item.id}>
             <Link href='/swap'>
-               <li className={`cursor-pointer flex-1 mr-10 text-center block ${isActive === item.id ? 'border-b-4 border-[rgb(122,110,170)] text-[bg-button] font-bold' : 'font-medium'}  hover:bg-[#1fc7d43d] hover:text-black p-1 text-black`} onClick={()=>setIsActive(item.id)}>
+               <li className={`cursor-pointer flex-1 mr-10 text-center block ${isClick === item.id ? 'border-b-4 border-[rgb(122,110,170)] text-[bg-button] font-bold' : 'font-medium'}  hover:bg-[#1fc7d43d] hover:text-black p-1 text-black`} onClick={()=>setIsClick(item.id)}>
               {item.title}   
             </li>
             </Link>

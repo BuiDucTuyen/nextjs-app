@@ -10,8 +10,6 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import todoImage from "@/assets/images/icon-todo.svg";
 import calendarImage from "@/assets/images/icon-calendar.svg";
-import remindersImage from "@/assets/images/icon-reminders.svg";
-import planningImage from "@/assets/images/icon-planning.svg";
 
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -19,6 +17,7 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
 
 type NavItem = {
+  id:number;
   label: string;
   link?: string;
   children?: NavItem[];
@@ -27,15 +26,18 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
+    id:1,
     label: "Trade",
     link: "#",
     children: [
       {
+        id:11,
         label: "swap",
         link: "/swap",
         iconImage: todoImage,
       },
       {
+        id:12,
         label: "liquidity",
         link: "/liquidity",
         iconImage: calendarImage,
@@ -43,44 +45,54 @@ const navItems: NavItem[] = [
     ],
   },
   {
+    id:2,
     label: "Buy",
     link: "#",
     children: [
       {
+        id:21,
         label: "History",
         link: "#",
       },
       {
+        id:22,
         label: "Our Team",
         link: "#",
       },
       {
+        id:23,
         label: "Blog",
         link: "#",
       },
     ],
   },
   {
+    id:3,
     label: "Earn",
     link: "#",
   },
   {
+    id:4,
     label: "Game",
     link: "#",
   },
   {
+    id:5,
     label: "NFT",
     link: "#",
   },
- 
 ];
 
 export default function Navbar() {
+  const [isClick,setIsClick] = useState(0)
+  const [isClickSmall,setIsClickSmall] = useState(1)
   const [animationParent] = useAutoAnimate();
   const [isSideMenuOpen, setSideMenue] = useState(false);
+
   function openSideMenu() {
     setSideMenue(true);
   }
+  
   function closeSideMenu() {
     setSideMenue(false);
   }
@@ -98,11 +110,11 @@ export default function Navbar() {
               key={i}
               href={d.link ?? "#"}
               className="relative group  px-2 py-3 transition-all "
-            >
-              <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-black ">
-                <span>{d.label}</span>
+              onClick={()=>setIsClick(i)} >
+              <p className={`flex cursor-pointer items-center gap-2 text-neutral-400 `}>
+                <span className={`${isClick === i ? 'text-bg-button font-bold' : ''}`}>{d.label}</span>
                 {d.children && (
-                  <IoIosArrowDown className=" rotate-180  transition-all group-hover:rotate-0" />
+                  <IoIosArrowDown className={`rotate-180 transition-all ${isClick === i ? 'rotate-0' : ''} group-hover:rotate-0`}/>
                 )}
               </p>
 
@@ -113,14 +125,14 @@ export default function Navbar() {
                     <Link
                       key={i}
                       href={ch.link ?? "#"}
-                      className=" flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black  "
+                      className="flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black" onClick={()=>setIsClickSmall(i)}
                     >
                       {/* image */}
                       {ch.iconImage && (
                         <Image src={ch.iconImage} alt="item-icon" />
                       )}
                       {/* item */}
-                      <span className="whitespace-nowrap   pl-3 ">
+                      <span className={`whitespace-nowrap ${isClickSmall === i ? 'text-bg-button font-bold' : '' } pl-3`}>
                         {ch.label}
                       </span>
                     </Link>
@@ -171,19 +183,20 @@ function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
               key={i}
               label={d.label}
               iconImage={d.iconImage}
-              link={d.link}
-            >
+              link={d.link} 
+              id={0}
+              >
               {d.children}
             </SingleNavItem>
           ))}
         </div>
 
-        <section className="  flex  flex-col   gap-8  mt-4 items-center">
+        <section className=" flex flex-col gap-8  mt-4 items-center">
           <button className="h-fit text-neutral-400 transition-all hover:text-black/90">
             Login
           </button>
 
-          <button className="w-full  max-w-[200px]  rounded-xl border-2 border-neutral-400 px-4 py-2 text-neutral-400 transition-all hover:border-black hover:text-black/90">
+          <button className="w-full max-w-[200px] rounded-xl border-2 border-neutral-400 px-4 py-2 text-neutral-400 transition-all hover:border-black hover:text-black/90">
             Register
           </button>
         </section>
