@@ -2,47 +2,51 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { SunIcon } from "@heroicons/react/24/outline";
-import { MoonIcon } from "@heroicons/react/24/solid";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import clsx from "clsx";
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
+  const [darkMode, setDarkMode] = useState(true);
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
-  }, []);
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    setDarkMode(currentTheme === "dark");
+  }, [systemTheme, theme]);
+
+  const handleToggle = () => {
+    setDarkMode(!darkMode);
+    setTheme(darkMode ? "light" : "dark");
+  };
 
   if (!mounted) {
     return null;
   }
 
-  const renderThemeChanger = () => {
-    if (!mounted) return null;
-
-    const currentTheme = theme === "system" ? systemTheme : theme;
-
-    if (currentTheme === "dark") {
-      return (
-        <SunIcon
-          className="w-6 h-6 text-yellow-500 "
-          role="button"
-          onClick={() => setTheme("light")}
-        />
-      );
-    } else {
-      return (
-        <MoonIcon
-          className="w-6 h-6 text-gray-900 "
-          role="button"
-          onClick={() => setTheme("dark")}
-        />
-      );
-    }
-  };
-
-  return <>{renderThemeChanger()}</>;
+  return (
+    <div
+      className="relative w-16 h-8 flex items-center bg-gray-300 dark:bg-gray-700 rounded-full p-1 cursor-pointer"
+      onClick={handleToggle}
+    >
+      <div
+        className={clsx(
+          "w-6 h-6 bg-white rounded-full shadow-md transform transition-transform",
+          {
+            "translate-x-8": darkMode,
+            "translate-x-0": !darkMode,
+          }
+        )}
+      >
+        {darkMode ? (
+          <MoonIcon className="w-6 h-6 text-gray-700" />
+        ) : (
+          <SunIcon className="w-6 h-6 text-yellow-500" />
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default ThemeSwitcher;
