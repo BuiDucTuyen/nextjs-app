@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import Provider from "@/components/dark-mode/Provider";
+import NavbarBottom from "@/components/navbar/NavbarBottom";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Provider>
           <Navbar />
-          {/* <div className="fixed z-50 w-full"> */}
-
-          {/* </div> */}
+          <NavbarBottom/>
           <div>{children}</div>
           <div>
             <Footer />

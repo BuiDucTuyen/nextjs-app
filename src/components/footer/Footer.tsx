@@ -1,6 +1,65 @@
 import React from 'react'
 
 const Footer = () => {
+  const arrs = [
+    {
+      id: 1,
+      name:'Product',
+      currents: [
+        {
+          title:'Overview'
+        },
+        {
+          title:'Features'
+        },
+        {
+          title:'Solutions'
+        },
+        {
+          title:'Tutorials'
+        },
+       
+      ]
+    },
+    {
+      id: 2,
+      name:'Company',
+      currents: [
+        {
+          title:'About us'
+        },
+        {
+          title:'Careers'
+        },
+        {
+          title:'Press'
+        },
+        {
+          title:' News'
+        },
+       
+      ]
+    },
+    {
+      id: 3,
+      name:'Resource',
+      currents: [
+        {
+          title:'Blog'
+        },
+        {
+          title:'Newsletter'
+        },
+        {
+          title:'Events'
+        },
+        {
+          title:'Help center'
+        },
+       
+      ]
+    },
+  ]
   return (
     <footer className="relative w-full">
     <div className="w-full px-8 mx-auto max-w-7xl">
@@ -9,96 +68,29 @@ const Footer = () => {
           Material Tailwind
         </h5>
         <div className="grid justify-between grid-cols-3 gap-4">
-          <ul>
+          {arrs.map(arr => (
+            <>
+            <ul key={arr.id}>
             <p
               className="block mb-3 font-sans text-[16px] antialiased font-bold leading-normal text-white opacity-70 hover:text-white-900">
-              Product
+             {arr.name}
             </p>
-            <li>
+            <div>
+              {arr.currents.map(current =>(
+                <>
+                 <li>
               <a href="#"
                 className="antialiased transition-colors block py-1.5 font-sans text-base font-normal leading-relaxed text-white opacity-40 hover:opacity-[0.8] hover:text-white-900">
-                Overview
+                {current.title}
               </a>
             </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors opacity-40 hover:opacity-[0.8] hover:text-white-900">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors opacity-40 hover:opacity-[0.8] hover:text-white-900">
-                Solutions
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors opacity-40 hover:opacity-[0.8] hover:text-white-900">
-                Tutorials
-              </a>
-            </li>
+                </>
+              ))}
+            </div>
+           
           </ul>
-          <ul>
-            <p
-              className="block mb-3 font-sans text-[16px] antialiased font-medium leading-normal opacity-70 text-blue-gray-900">
-              Company
-            </p>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                About us
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                Careers
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                Press
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                News
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <p
-              className="block mb-3 font-sans text-[16px] antialiased font-medium leading-normal opacity-70 text-blue-gray-900">
-              Resource
-            </p>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                Newsletter
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
-                Events
-              </a>
-            </li>
-            <li>
-              <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white opacity-40 antialiased transition-colors hover:opacity-[0.8] hover:text-white-900">
-                Help center
-              </a>
-            </li>
-          </ul>
+            </>
+          ))}
         </div>
       </div>
       <div
