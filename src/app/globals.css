@@ -38,6 +38,17 @@ footer {
   padding-top: 20px;
 }
 
+footer > p {
+  font-size: 20px;
+  color: #f5061a;
+}
+
+.navbar {
+ color: rgb(var(--foreground-footer-color));
+  background: linear-gradient(0deg,#fff,#fff),linear-gradient(135.76deg,var(--color-pink),var(--color-pink-dark) 98.7%),var(--background-footer-url);
+  padding-top: 20px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

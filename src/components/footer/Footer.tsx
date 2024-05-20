@@ -11,90 +11,90 @@ const Footer = () => {
         <div className="grid justify-between grid-cols-3 gap-4">
           <ul>
             <p
-              className="block mb-3 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900 opacity-40">
+              className="block mb-3 font-sans text-[16px] antialiased font-bold leading-normal text-white opacity-70 hover:text-white-900">
               Product
             </p>
             <li>
               <a href="#"
-                className="transition ease-in-out delay-150 block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased hover:opacity-[0.5] hover:text-white-900">
+                className="antialiased transition-colors block py-1.5 font-sans text-base font-normal leading-relaxed text-white opacity-40 hover:opacity-[0.8] hover:text-white-900">
                 Overview
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors opacity-40 hover:opacity-[0.8] hover:text-white-900">
                 Features
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors opacity-40 hover:opacity-[0.8] hover:text-white-900">
                 Solutions
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors opacity-40 hover:opacity-[0.8] hover:text-white-900">
                 Tutorials
               </a>
             </li>
           </ul>
           <ul>
             <p
-              className="block mb-3 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900 opacity-40">
+              className="block mb-3 font-sans text-[16px] antialiased font-medium leading-normal opacity-70 text-blue-gray-900">
               Company
             </p>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 About us
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 Careers
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 Press
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 News
               </a>
             </li>
           </ul>
           <ul>
             <p
-              className="block mb-3 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900 opacity-40">
+              className="block mb-3 font-sans text-[16px] antialiased font-medium leading-normal opacity-70 text-blue-gray-900">
               Resource
             </p>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 Blog
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 Newsletter
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased opacity-40 transition-colors hover:opacity-[0.8] hover:text-white-900">
                 Events
               </a>
             </li>
             <li>
               <a href="#"
-                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white antialiased transition-colors hover:opacity-[0.5] hover:text-white-900">
+                className="block py-1.5 font-sans text-base font-normal leading-relaxed text-white opacity-40 antialiased transition-colors hover:opacity-[0.8] hover:text-white-900">
                 Help center
               </a>
             </li>
