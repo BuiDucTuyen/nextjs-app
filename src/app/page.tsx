@@ -14,10 +14,10 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-24 py-8">
-    <div className="w-[400px] bg-white p-1 rounded-full flex justify-between">
+    <div className="w-[400px] bg-[rgb(238,234,244)] p-1 rounded-full flex justify-between">
       {arrButtons.map(itemButton => (
-        <div key={itemButton.id} className="w-full">
-        <button className={`rounded-full item-center w-full ${active === itemButton.id ? "bg-bg-button text-white font-bold" : "" }  p-2`} onClick={()=>setActive(itemButton.id)}>{itemButton.title}</button>
+        <div key={itemButton.id} className="w-full ">
+        <button className={`rounded-full item-center w-full ${active === itemButton.id ? "bg-bg-button text-white font-bold" : "font-medium bg-[rgb(238,234,244)]" }  p-2`} onClick={()=>setActive(itemButton.id)}>{itemButton.title}</button>
         </div>
       )
     )}
