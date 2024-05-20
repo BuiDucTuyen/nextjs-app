@@ -17,6 +17,7 @@
   --color-pink-dark: #ebe8dd;
   --background-footer-url:url(https://bridge.onbeam.com/static/lcd-tile.png);
   --foreground-footer-color: 255, 255, 255;
+  --bg-button:#7a6eaa
 }
 
 @media (prefers-color-scheme: dark) {
