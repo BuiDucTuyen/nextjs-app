@@ -30,7 +30,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(90deg,rgb(var(--background-start-rgb)) 3%,rgb(var(--background-between-rgb)) 66%, rgb(var(--background-start-rgb)) 96%), var(--background-url);
+  background-color: #ebe8dd;
 }
 
 footer {
