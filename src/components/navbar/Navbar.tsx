@@ -90,7 +90,7 @@ export default function Navbar() {
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-10">
         {/* logo */}
-        <Image src={logo} alt=" logo" />
+        <Link href='/'><Image src={logo} alt=" logo" /></Link>
         {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
         <div className="hidden md:flex items-center gap-4 transition-all">
           {navItems.map((d, i) => (

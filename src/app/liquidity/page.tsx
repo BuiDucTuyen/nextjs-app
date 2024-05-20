@@ -1,6 +1,8 @@
 "use client"
 
+import LayoutLiquidity from "@/components/liquidity/LayoutLiquidity";
 import NavbarBottom from "@/components/navbar/NavbarBottom";
+import LayoutSwap from "@/components/swap/LayoutSwap";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -16,11 +18,9 @@ export default function Liquidity() {
   return (
     <>
      <NavbarBottom/>
-       <main className="flex min-h-screen flex-col items-center justify-between px-24 py-8">
-    <div className="max-w-[400px] bg-white p-1 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-full flex justify-between">
-      <div className="">
-       kakakakakka
-      </div>
+    <main className="main flex min-h-screen flex-col items-center justify-between px-24 py-8">
+    <div className="p-1  flex justify-between">
+        <LayoutLiquidity/>
     </div>
     </main>
     </>
