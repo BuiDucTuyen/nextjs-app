@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import Provider from "@/components/dark-mode/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,16 +20,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="fixed z-50 w-full">
-          <Navbar/>
-        </div>
-        <div>
-         {children} 
-        </div>
-        <div>
-           <Footer/>
-        </div>
-        </body>
+        <Provider>
+          <Navbar />
+          {/* <div className="fixed z-50 w-full"> */}
+
+          {/* </div> */}
+          <div>{children}</div>
+          <div>
+            <Footer />
+          </div>
+        </Provider>
+      </body>
     </html>
   );
 }

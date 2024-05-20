@@ -17,6 +17,7 @@ import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ButtonTheme from "../dark-mode/ButtonTheme";
+import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
 
 type NavItem = {
   label: string;
@@ -91,7 +92,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className=" mx-auto flex w-full max-w-7xl justify-between px-4 py-5 text-sm">
+    <div className="navbar mx-auto flex w-full justify-between px-4 py-5 text-sm">
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-10">
         {/* logo */}
@@ -148,7 +149,7 @@ export default function Navbar() {
           Register
         </button>
         <div>
-          <ButtonTheme />
+          <ThemeSwitcher />
         </div>
       </section>
 

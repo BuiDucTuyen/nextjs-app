@@ -1,7 +1,10 @@
 import { ThemeProvider, useTheme } from "next-themes";
 
 const ThemeToggleButton = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme() as unknown as {
+    theme: string;
+    toggleTheme: () => void;
+  };
 
   return (
     <div>
