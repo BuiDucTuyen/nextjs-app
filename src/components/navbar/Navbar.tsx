@@ -16,7 +16,6 @@ import planningImage from "@/assets/images/icon-planning.svg";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import ButtonTheme from "../dark-mode/ButtonTheme";
 import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
 
 type NavItem = {
