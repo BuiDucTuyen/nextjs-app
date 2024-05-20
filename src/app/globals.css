@@ -4,8 +4,10 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 249, 237, 234;
+  --background-between-rgb: 255, 238, 238;
+  --background-end-rgb: 248, 248, 211;
+  --background-url:url(https://zerius.io/img/bg.png);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,13 +20,9 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(90deg,rgb(var(--background-start-rgb)) 3%,rgb(var(--background-between-rgb)) 66%, rgb(var(--background-start-rgb)) 96%), var(--background-url);
 }
+   
 
 @layer utilities {
   .text-balance {

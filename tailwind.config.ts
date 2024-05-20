@@ -12,6 +12,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+            "bgColor": 'linear-gradient(90deg, rgb(249, 237, 234) 3%, rgb(255, 238, 238) 66%, rgb(248, 242, 211) 96%), url(https://zerius.io/img/bg.png)',
       },
     },
   },
