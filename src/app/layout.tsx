@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
-import Provider from "@/components/dark-mode/Provider";
 import NavbarBottom from "@/components/navbar/NavbarBottom";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import Context from "@/context";
+// import { ActiveProvider } from "@/lib/context";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,8 +25,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextUIProvider>
           <NextThemesProvider attribute="class" defaultTheme="dark">
-            <Navbar />
+            <Context>
+                   <Navbar />
             <div>{children}</div>
+            </Context>
             <div>
               <Footer />
             </div>

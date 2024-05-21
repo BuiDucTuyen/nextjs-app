@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { ContextType, useContext, useState } from "react";
 
 import logo from "@/assets/images/logo.svg";
 import Link from "next/link";
@@ -15,6 +15,8 @@ import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
+// import { useActiveContext } from "@/lib/context";
+import { myContext } from "@/context";
 
 type NavItem = {
   id:number;
@@ -31,13 +33,13 @@ const navItems: NavItem[] = [
     link: "#",
     children: [
       {
-        id:11,
+        id:1,
         label: "swap",
         link: "/swap",
         iconImage: todoImage,
       },
       {
-        id:12,
+        id:2,
         label: "liquidity",
         link: "/liquidity",
         iconImage: calendarImage,
@@ -50,17 +52,17 @@ const navItems: NavItem[] = [
     link: "#",
     children: [
       {
-        id:21,
+        id:1,
         label: "History",
         link: "#",
       },
       {
-        id:22,
+        id:2,
         label: "Our Team",
         link: "#",
       },
       {
-        id:23,
+        id:3,
         label: "Blog",
         link: "#",
       },
@@ -84,8 +86,8 @@ const navItems: NavItem[] = [
 ];
 
 export default function Navbar() {
-  const [isClick,setIsClick] = useState(0)
-  const [isClickSmall,setIsClickSmall] = useState(1)
+  const {userObject, setUserObject } = useContext<any>(myContext);
+  const [isActive,setIsActive] = useState<any>()
   const [animationParent] = useAutoAnimate();
   const [isSideMenuOpen, setSideMenue] = useState(false);
 
@@ -97,6 +99,7 @@ export default function Navbar() {
     setSideMenue(false);
   }
 
+  console.log(userObject,">>>>>>>>>>>>userObjectvuserObject")
   return (
     <div className="navbar mx-auto flex w-full justify-between px-4 py-5 text-sm">
       {/* left side  */}
@@ -110,11 +113,11 @@ export default function Navbar() {
               key={i}
               href={d.link ?? "#"}
               className="relative group  px-2 py-3 transition-all "
-              onClick={()=>setIsClick(i)} >
+              onClick={()=>setIsActive(i)} >
               <p className={`flex cursor-pointer items-center gap-2 text-neutral-400 `}>
-                <span className={`${isClick === i ? 'text-bg-button font-bold' : ''}`}>{d.label}</span>
+                <span className={`${isActive === i ? 'text-bg-button font-bold' : ''}`}>{d.label}</span>
                 {d.children && (
-                  <IoIosArrowDown className={`rotate-180 transition-all ${isClick === i ? 'rotate-0' : ''} group-hover:rotate-0`}/>
+                  <IoIosArrowDown className={`rotate-180 transition-all ${userObject === i ? 'rotate-0' : ''} group-hover:rotate-0`}/>
                 )}
               </p>
 
@@ -125,14 +128,14 @@ export default function Navbar() {
                     <Link
                       key={i}
                       href={ch.link ?? "#"}
-                      className="flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black" onClick={()=>setIsClickSmall(i)}
+                      className="flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black" onClick={()=>setUserObject(i)}
                     >
                       {/* image */}
                       {ch.iconImage && (
                         <Image src={ch.iconImage} alt="item-icon" />
                       )}
                       {/* item */}
-                      <span className={`whitespace-nowrap ${isClickSmall === i ? 'text-bg-button font-bold' : '' } pl-3`}>
+                      <span className={`whitespace-nowrap ${userObject === i ? 'text-bg-button font-bold' : '' } pl-3`}>
                         {ch.label}
                       </span>
                     </Link>
