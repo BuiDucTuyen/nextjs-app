@@ -15,81 +15,122 @@ import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ThemeSwitcher from "../dark-mode/ThemeSwitcher";
-// import { useActiveContext } from "@/lib/context";
 import { myContext } from "@/context";
 
-type NavItem = {
-  id:number;
-  label: string;
-  link?: string;
-  children?: NavItem[];
-  iconImage?: string;
-};
+    type ItemsNav = {
+      index:number;
+      label: string;
+      link?: string;
+      iconImage?: string;
+    };
+    type NavItem = {
+      id:number;
+      label: string;
+      link?: string;
+      children?: ItemsNav[];
+      iconImage?: string;
+    };
 
-const navItems: NavItem[] = [
-  {
-    id:1,
-    label: "Trade",
-    link: "#",
-    children: [
-      {
-        id:1,
-        label: "swap",
-        link: "/swap",
-        iconImage: todoImage,
-      },
-      {
-        id:2,
-        label: "liquidity",
-        link: "/liquidity",
-        iconImage: calendarImage,
-      }
-    ],
-  },
-  {
-    id:2,
-    label: "Buy",
-    link: "#",
-    children: [
-      {
-        id:1,
-        label: "History",
-        link: "#",
-      },
-      {
-        id:2,
-        label: "Our Team",
-        link: "#",
-      },
-      {
-        id:3,
-        label: "Blog",
-        link: "#",
-      },
-    ],
-  },
-  {
-    id:3,
-    label: "Earn",
-    link: "#",
-  },
-  {
-    id:4,
-    label: "Game",
-    link: "#",
-  },
-  {
-    id:5,
-    label: "NFT",
-    link: "#",
-  },
-];
+  const navItems: NavItem[] = [
+    {
+      id:1,
+      label: "Trade",
+      link: "#",
+      children: [
+        {
+          index:1,
+          label: "Swap",
+          link: "/swap",
+          iconImage: todoImage,
+        },
+        {
+          index:2,
+          label: "Liquidity",
+          link: "/liquidity",
+          iconImage: calendarImage,
+        },
+        {
+          index:3,
+          label: "Perpetual",
+          link: "/perpetual",
+          iconImage: calendarImage,
+        },
+        {
+          index:4,
+          label: "Options",
+          link: "/options",
+          iconImage: calendarImage,
+        },
+        {
+          index:4,
+          label: "Bridge",
+          link: "/bridge",
+          iconImage: calendarImage,
+        }
+      ],
+    },
+    {
+      id:2,
+      label: "Buy",
+      link: "#",
+      children: [
+        {
+          index:1,
+          label: "Farms",
+          link: "/farms",
+        },
+        {
+          index:2,
+          label: "CAKE Staking",
+          link: "/cake-staking",
+        },
+        {
+          index:3,
+          label: "Pools",
+          link: "#",
+        },
+        {
+          index:4,
+          label: "Position Manager",
+          link: "#",
+        },
+        {
+          index:5,
+          label: "Liquid Staking",
+          link: "#",
+        },
+        {
+          index:6,
+          label: "Simple Staking",
+          link: "#",
+        }
+      ],
+    },
+    {
+      id:3,
+      label: "Earn",
+      link: "#",
+    },
+    {
+      id:4,
+      label: "Start",
+      link: "/page/start",
+    },
+    {
+      id:5,
+      label: "End",
+      link: "/page/end",
+    },
+  ];
 
 export default function Navbar() {
   const {userObject, setUserObject } = useContext<any>(myContext);
-  const [isActive,setIsActive] = useState<any>()
+  const {isActive,setIsActive} = useContext<any>(myContext);
+  const {isObject,setIsObject} = useContext<any>(myContext);
   const [animationParent] = useAutoAnimate();
   const [isSideMenuOpen, setSideMenue] = useState(false);
+
+  console.log(isActive,'>>>>>>>>>>>>>>>isActiveisActive')
 
   function openSideMenu() {
     setSideMenue(true);
@@ -99,7 +140,6 @@ export default function Navbar() {
     setSideMenue(false);
   }
 
-  console.log(userObject,">>>>>>>>>>>>userObjectvuserObject")
   return (
     <div className="navbar mx-auto flex w-full justify-between px-4 py-5 text-sm">
       {/* left side  */}
@@ -113,22 +153,22 @@ export default function Navbar() {
               key={i}
               href={d.link ?? "#"}
               className="relative group  px-2 py-3 transition-all "
-              onClick={()=>setIsActive(i)} >
+              onClick={()=> {setIsActive(i),setIsObject(d)}} >
               <p className={`flex cursor-pointer items-center gap-2 text-neutral-400 `}>
                 <span className={`${isActive === i ? 'text-bg-button font-bold' : ''}`}>{d.label}</span>
                 {d.children && (
-                  <IoIosArrowDown className={`rotate-180 transition-all ${userObject === i ? 'rotate-0' : ''} group-hover:rotate-0`}/>
+                  <IoIosArrowDown className={`rotate-180 transition-all ${isActive.id === i ? 'rotate-0' : ''} group-hover:rotate-0`}/>
                 )}
               </p>
 
               {/* dropdown */}
               {d.children && (
-                <div className="absolute   right-0   top-10 hidden w-auto  flex-col gap-1   rounded-lg bg-white py-3 shadow-md  transition-all group-hover:flex ">
+                <div className="absolute right-0 top-10 hidden w-auto  flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex ">
                   {d.children.map((ch, i) => (
                     <Link
                       key={i}
                       href={ch.link ?? "#"}
-                      className="flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black" onClick={()=>setUserObject(i)}
+                      className="flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black" onClick={()=>setUserObject(i)}
                     >
                       {/* image */}
                       {ch.iconImage && (

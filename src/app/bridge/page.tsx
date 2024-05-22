@@ -6,7 +6,7 @@ import { myContext } from "@/context";
 import { createContext, useContext} from 'react';
 
 const ActiveContext = createContext<unknown>(0)
-export default function Swap() {
+export default function Bridge() {
   const {userObject, setUserObject } = useContext<any>(myContext);
    const arrButtons = [
     {id:1,title:'Market'},
